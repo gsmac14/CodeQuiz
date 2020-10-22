@@ -10,10 +10,11 @@
   </head>
   <body>
       <!--Used navbar from bootstrap and aligned timer and time to left with ml-auto-->
+      <!--changed text using bootstrap text-primary in line 15-->
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand " href="#">View Highscores</a>
-          <div class="timer ml-auto">Time: <span id="time ml-auto">0</span></div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light text-primary" >
+            <button id="high-Scores" type="button" class="btn btn-link">View Highscores</button>
+          <div  class="timer ml-auto" > Time: <span id="time ml-auto">0</span></div>
         </nav>
       </div>
 
@@ -52,7 +53,7 @@
         <p>Your final score is: <span id="finalScore"></span></p>
         <p>
             Enter initials: <input type="text" id="initials" maxlength="3">
-            <button type="button" class="btn btn-success">Submit</button>
+            <button id="submit-button" type="button" class="btn btn-success">Submit</button>
         </p>
       </div>
     </div>

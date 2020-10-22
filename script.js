@@ -9,6 +9,8 @@
 //function for saving score and push to localstorage
 
 var startButton = document.getElementById("start-button");
+var submitEl = document.getElementById("submit-button");
+var highScoresEl = document.getElementById("high-Scores");
 var questionEl= document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
 var endScreenEl = document.getElementById("endScreen");
@@ -18,4 +20,17 @@ startButton.addEventListener("click", function(event) {
     event.preventDefault();
 
     console.log(event);
+});
+
+highScoresEl.addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    console.log(event);
+    
+});
+
+submitEl.addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    console.log(event)
 });
