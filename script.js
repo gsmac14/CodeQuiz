@@ -7,3 +7,5 @@
 //keep score on choices selection. if correct add score. if incorrect deduct time
 //end quiz function, inside function calculate score and end timer(if and else 0 run end)
 //function for saving score and push to localstorage
+
+var 
