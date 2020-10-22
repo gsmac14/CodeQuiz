@@ -8,4 +8,14 @@
 //end quiz function, inside function calculate score and end timer(if and else 0 run end)
 //function for saving score and push to localstorage
 
-var 
+var startButton = document.getElementById("start-button");
+var questionEl= document.getElementById("questions");
+var choicesEl = document.getElementById("choices");
+var endScreenEl = document.getElementById("endScreen");
+var finalScoreEL = document.getElementById("finalScore");
+
+startButton.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    console.log(event);
+});
