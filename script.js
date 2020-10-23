@@ -11,26 +11,47 @@
 var startButton = document.getElementById("start-button");
 var submitEl = document.getElementById("submit-button");
 var highScoresEl = document.getElementById("high-Scores");
-var questionEl= document.getElementById("questions");
+var questionEl = document.getElementById("questions");
 var choicesEl = document.getElementById("choices");
 var endScreenEl = document.getElementById("endScreen");
 var finalScoreEL = document.getElementById("finalScore");
+var timeEl = document.getElementById("time ml-auto");
+var timer = 60;
+var timerInterval;
 
-startButton.addEventListener("click", function(event) {
-    event.preventDefault();
+function setTime() {
+  timerInterval = setInterval(function () {
+    timer--;
+    timeEl.textContent = timer;
+    if (timer === 0) {
+      clearInterval(timerInterval);
+    }
+  }, 1000);
+}
 
-    console.log(event);
+function startQuiz() {
+  var startButtonEl = document.getElementById("start-button");
+  var timeEl = document.getElementById("time");
+  var finalScoreEl = document.getElementById("finalScore");
+  var quizArea = document.getElementById("quizArea");
+  quizArea.innerHTML = "";
+}
+
+startButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  startQuiz();
+  setTime();
+  console.log(event);
 });
 
-highScoresEl.addEventListener("click", function(event) {
-    event.preventDefault();
-    
-    console.log(event);
-    
+highScoresEl.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  console.log(event);
 });
 
-submitEl.addEventListener("click", function(event) {
-    event.preventDefault();
-    
-    console.log(event)
+submitEl.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  console.log(event);
 });
