@@ -18,6 +18,37 @@ var finalScoreEL = document.getElementById("finalScore");
 var timeEl = document.getElementById("time ml-auto");
 var timer = 60;
 var timerInterval;
+var questionIndex = 0;
+//Quiz questions with objects
+var questions = [
+  {
+    title: "What does the sign # mean?",
+    choices: ["id tag", "class tag", "stop tag", "enter tag"],
+    answer: "id tag",
+  },
+  {
+    title:
+      "Which method is used to remove the first element of an array and return that element?",
+    choices: ["unshift", "pop", "push", "shift"],
+    answer: "shift",
+  },
+  {
+    title:
+      "How is a class expressed in javascprit when performing getElementId?",
+    choices: [".element", "#element", "?element", "!element"],
+    answer: ".element",
+  },
+  {
+    title: "What property evaluates the array length?",
+    choices: [".log", "console.log", ".textContent", ".length"],
+    answer: ".length",
+  },
+  {
+    title: "Which command will give a user a choice between cancel and ok?",
+    choices: ["alert", "confirm", "prompt", "console.log"],
+    answer: "confirm",
+  },
+];
 
 function setTime() {
   timerInterval = setInterval(function () {
@@ -35,6 +66,42 @@ function startQuiz() {
   var finalScoreEl = document.getElementById("finalScore");
   var quizArea = document.getElementById("quizArea");
   quizArea.innerHTML = "";
+}
+
+function getQuestion() {
+  var currentQuestion = questions[questionIndex];
+  var titleEl = document.getElementById("questionTitle");
+  titleEl.textContent = currentQuestion.title;
+  titleEl.innerHTML = "";
+
+  currentQuestion.choices.forEach(function (choice) {
+    var choiceButton = document.createElement("button");
+    choiceButton.setAttribute("class", "choice");
+    choiceButton.setAttribute("value", choice);
+    choiceButton.setAttribute("class", "choiceButton");
+    choiceButton.textContent = choice;
+    choiceButton.onclick = checkQuestion;
+    choicesEl.appendChild(choiceButton);
+  });
+}
+
+function checkQuestion() {
+    answer = event.target.textContent;
+    var correct = questions[questionIndex].answer;
+  if (correct === answer) {
+    result.textContent = "Correct";
+}
+else {
+    timer -= 10;
+    result.textContent = "Sorry wrong answer :(";
+}
+
+  questionIndex++;
+  if (questionIndex === questions.length) {
+    quizEnd();
+  } else {
+    getQuestion();
+  }
 }
 
 startButton.addEventListener("click", function (event) {
