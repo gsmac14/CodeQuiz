@@ -19,6 +19,8 @@ var timeEl = document.getElementById("time ml-auto");
 var timer = 60;
 var timerInterval;
 var questionIndex = 0;
+var result = document.getElementById("result");
+var score = 0
 //Quiz questions with objects
 var questions = [
   {
@@ -72,7 +74,11 @@ function getQuestion() {
   var currentQuestion = questions[questionIndex];
   var titleEl = document.getElementById("questionTitle");
   titleEl.textContent = currentQuestion.title;
-  titleEl.innerHTML = "";
+  console.log("getQuestion");
+  console.log(currentQuestion);
+  console.log(titleEl);
+  questionEl.setAttribute("class", "");
+  choicesEl.innerHTML = "";
 
   currentQuestion.choices.forEach(function (choice) {
     var choiceButton = document.createElement("button");
@@ -86,15 +92,14 @@ function getQuestion() {
 }
 
 function checkQuestion() {
-    answer = event.target.textContent;
-    var correct = questions[questionIndex].answer;
+  answer = event.target.textContent;
+  var correct = questions[questionIndex].answer;
   if (correct === answer) {
     result.textContent = "Correct";
-}
-else {
+  } else {
     timer -= 10;
     result.textContent = "Sorry wrong answer :(";
-}
+  }
 
   questionIndex++;
   if (questionIndex === questions.length) {
@@ -104,16 +109,22 @@ else {
   }
 }
 
+function showResult{
+    answerResult = 
+}
+
+
 startButton.addEventListener("click", function (event) {
   event.preventDefault();
   startQuiz();
   setTime();
+  getQuestion();
   console.log(event);
 });
 
 highScoresEl.addEventListener("click", function (event) {
   event.preventDefault();
-
+  addScore();
   console.log(event);
 });
 
