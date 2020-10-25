@@ -107,11 +107,8 @@ function checkQuestion() {
   } else {
     getQuestion();
   }
-}
 
-function showResult{
-    answerResult = 
-}
+  }
 
 
 startButton.addEventListener("click", function (event) {
@@ -119,17 +116,16 @@ startButton.addEventListener("click", function (event) {
   startQuiz();
   setTime();
   getQuestion();
+  lo
   console.log(event);
 });
 
 highScoresEl.addEventListener("click", function (event) {
   event.preventDefault();
-  addScore();
   console.log(event);
 });
 
 submitEl.addEventListener("click", function (event) {
   event.preventDefault();
-
   console.log(event);
 });
